@@ -22,60 +22,60 @@ afterAll(async()=>{
 
 describe("User Work and host Request Testing",()=>{
     
-    //testing for user registration
+   // testing for user registration
     it("Registration Testing",()=>{
         const user = {
-            "first_name":"Srijan",
-            "last_name":"Kumar",
-            "username":"srijan",
+            "first_name":"test",
+            "last_name":"test",
+            "username":"test",
             "password":"123456",
             "userType":"Admin",
-            "profileImg":"abcd.jpg",
-            'email':"srijan@gmail.com"
+            "profileImg":"abscd.jpg",
+            'email':"srjn@gmail.com"
         
         }
 
         return Registration.create(user)
         .then((reg_ret)=>{
-            expect(reg_ret.first_name).toEqual("Srijan")
+            expect(reg_ret.first_name).toEqual("test")
         })
     })
 
-    //testing for work addition
-    it("Work Addition Testing",()=>{
+    //testing for category addition
+    it("Category Addition Testing",()=>{
         const work = {
             
-            WorkImg:"abc.jpg",
-            WorkName:"Jello",
-            Code:"acadas",
-            Description:"sdajshd",
-            AvgRating:4
+            WorkImg:"absdc.jpg",
+            WorkName:"Minicar",
+            Code:"acasdfdas",
+            Description:"sdsdajshd",
+            AvgRating:3
 
 
         } 
 
         return Work.create(work)
         .then((work_ret)=>{
-            expect(work_ret.WorkName).toEqual("Jello")
+            expect(work_ret.WorkName).toEqual("Minicar")
         })
     })
 
 
-    //testing for work update
-    it("Testing work update",async ()=>{
-       const status = await Work.updateOne({_id:Object("607145d90a00e9216cb591a2")},{
+    //testing for category update
+    it("Testing category update",async ()=>{
+       const status = await Work.updateOne({_id:Object("61598ac776cab8626c8940c3")},{
             $set:{
-                "WorkName":"Hello"
+                "WorkName":"Minivan"
             }
         })
       
         expect(status.ok).toBe(1)
     })
 
-//     //testing for work delete
-    it("Testing for Work Delete",async ()=>{
+//     //testing for category delete
+    it("Testing for category Delete",async ()=>{
         const status = await Work.deleteOne({
-            "_id":Object("607145d90a00e9216cb591a2")
+            "_id":Object("61598ac776cab8626c8940c3")
         })
      expect(status.ok).toBe(1);
         
@@ -84,8 +84,8 @@ describe("User Work and host Request Testing",()=>{
 //     //testing for request to professional
     it("Testing for Request model",()=>{
             const requests = {
-                "user_id":"607143710a00e9216cb591a0",
-                "profession":"Plumber",
+                "user_id":"61598ac776cab8626c8940c2",
+                "profession":"Supercar",
                 "requestDate":"2020-10-12",
                 "cv":"no-img.jpg",
                 "citizenShip":"no-img.jpg",
@@ -105,7 +105,7 @@ describe("User Work and host Request Testing",()=>{
     //testing for request delete
     it("Testing for Request Delete",async ()=>{
         const status = await Work.deleteOne({
-            "_id": Object("607d86f0104a462e682ebd8b")
+            "_id": Object("61598ac776cab8626c8940c2")
         })
         expect(status.ok).toBe(1);
     })
@@ -115,12 +115,12 @@ describe("User Work and host Request Testing",()=>{
    // testing for user details update
     it("Testing user details update",async ()=>{
         const status = await Registration.updateOne({
-            "_id":Object("607143710a00e9216cb591a0")
+            "_id":Object("61598ac776cab8626c8940c2")
         },
         {
             $set:{
-                "first_name":"Srijan",
-                "last_name":"Budhathoki"
+                "first_name":"test1",
+                "last_name":"test1"
             }
         })
 
@@ -132,7 +132,7 @@ describe("User Work and host Request Testing",()=>{
    // testing for user delete
     it("Testing user delete",async ()=>{
         const status = await Registration.deleteOne({
-            "_id":Object("607143710a00e9216cb591a0")
+            "_id":Object("61598ac776cab8626c8940c2")
         })
 
         expect(status.ok).toBe(1)
